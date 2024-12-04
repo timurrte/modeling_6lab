@@ -74,11 +74,10 @@ f_t = 9.15
 S_bi = S_0/N
 student = 2.36
 for i in range(l):
-    t_ip = np.abs(b[i])/ S_bi
+    t_ip = np.abs(b[i])/ np.sqrt(S_bi)
     if (t_ip < student):
         print(f"{i}-й коефіцієнт регресії при оцінці {t_ip} не є значущим")
-        exit(0)
-print("Всі коефіцієнти регресії є значущими\n")
+        b[i] = 0
 
 print("Середнє значення y:", y_mean)
 print("\nКоефіцієнти регресійної моделі:")
